@@ -6,18 +6,13 @@ const App = () => {
       if (n <= 1) {
         resolve(1);
       } else {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         resolve(factorialPromise(n - 1).then((prevFact: any) => prevFact * n));
       }
     });
   }
 
-  return (
-    <div>
-      {factorialPromise(5).then((ans: any) => (
-        <h1>{ans}</h1>
-      ))}
-    </div>
-  );
+  return <div>Hello! {new Date().toLocaleDateString()}</div>;
 };
 
 export default App;
