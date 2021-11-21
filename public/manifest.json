@@ -1,6 +1,10 @@
 {
+  "name": "Sundoboo: please help with the choice",
   "short_name": "Sundoboo",
-  "name": "Sundoboo Web",
+  "lang": "ko",
+  "description": "free vote app - Sundobbo",
+  "display": "standalone",
+  "start_url": ".",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +22,6 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
