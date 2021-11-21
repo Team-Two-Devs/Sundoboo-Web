@@ -4,6 +4,8 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
 
+const PUB_DIR = path.join(__dirname, '/public');
+
 const config: Configuration = {
   mode: 'development',
   output: {
@@ -29,7 +31,9 @@ const config: Configuration = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      title: 'Sundoboo',
+      template: `${PUB_DIR}/index.html`,
+      favicon: `${PUB_DIR}/favicon.ico`
     }),
     new HotModuleReplacementPlugin(),
     new ForkTsCheckerWebpackPlugin({
