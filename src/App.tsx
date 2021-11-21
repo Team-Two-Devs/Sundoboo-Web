@@ -11,13 +11,7 @@ const App = () => {
     });
   }
 
-  return (
-    <div>
-      {factorialPromise(5).then((ans: any) => (
-        <h1>{ans}</h1>
-      ))}
-    </div>
-  );
+  return <div>Hello!</div>;
 };
 
 export default App;
