@@ -11,7 +11,7 @@ const App = () => {
     });
   }
 
-  return <div>Hello!</div>;
+  return <div>Hello! {new Date().toLocaleDateString()}</div>;
 };
 
 export default App;
