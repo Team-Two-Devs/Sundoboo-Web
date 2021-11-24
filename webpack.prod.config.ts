@@ -4,6 +4,7 @@ import { Configuration } from 'webpack';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
+import { WebpackManifestPlugin } from 'webpack-manifest-plugin';
 
 const PUB_DIR = path.join(__dirname, '/public');
 
@@ -43,6 +44,10 @@ const config: Configuration = {
     }),
     new ESLintPlugin({
       extensions: ['js', 'jsx', 'ts', 'tsx']
+    }),
+    new WebpackManifestPlugin({
+      fileName: 'manifest.json',
+      basePath: './dist/'
     }),
     new CleanWebpackPlugin()
   ]

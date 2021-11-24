@@ -3,6 +3,7 @@ import { Configuration, HotModuleReplacementPlugin } from 'webpack';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
+import { WebpackManifestPlugin } from 'webpack-manifest-plugin';
 
 const PUB_DIR = path.join(__dirname, '/public');
 
@@ -31,7 +32,7 @@ const config: Configuration = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Sundoboo',
+      title: 'Sundoboo-Dev',
       template: `${PUB_DIR}/index.html`,
       favicon: `${PUB_DIR}/favicon.ico`
     }),
@@ -41,6 +42,9 @@ const config: Configuration = {
     }),
     new ESLintPlugin({
       extensions: ['js', 'jsx', 'ts', 'tsx']
+    }),
+    new WebpackManifestPlugin({
+      fileName: 'manifest.json'
     })
   ],
   devtool: 'inline-source-map',
