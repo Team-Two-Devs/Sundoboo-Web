@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-import { useToggle, useUpdate } from './hooks';
+import { useEffectOnce, useToggle, useUpdate } from './hooks';
 
 const App = () => {
   const [value, toggleValue] = useToggle(false);
   const [count, setCount] = useState(10);
-  useUpdate(() => console.log(count), [count]);
 
   const handleIncrement = () => {
     setCount((prevCount) => prevCount + 1);
@@ -21,6 +20,10 @@ const App = () => {
       }
     });
   }
+
+  useEffectOnce(() => console.log('useEffectOnce'));
+
+  useUpdate(() => console.log(count), [count]);
 
   return (
     <div>
