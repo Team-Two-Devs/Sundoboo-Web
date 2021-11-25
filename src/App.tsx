@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { useToggle } from './hooks';
+import { useToggle, useUpdate } from './hooks';
 
 const App = () => {
   const [value, toggleValue] = useToggle(false);
+  const [count, setCount] = useState(10);
+  useUpdate(() => console.log(count), [count]);
+
+  const handleIncrement = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
 
   function factorialPromise(n: number) {
     return new Promise((resolve, reject) => {
@@ -23,6 +29,8 @@ const App = () => {
       <button onClick={toggleValue}>Toggle</button>
       <button onClick={() => toggleValue(true)}>true</button>
       <button onClick={() => toggleValue(false)}>false</button>
+      <div>count: {count}</div>
+      <button onClick={handleIncrement}>Increment</button>
     </div>
   );
 };

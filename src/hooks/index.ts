@@ -1,3 +1,4 @@
 import useToggle from './useToggle';
+import useUpdate from './useUpdate';
 
-export { useToggle };
+export { useToggle, useUpdate };
