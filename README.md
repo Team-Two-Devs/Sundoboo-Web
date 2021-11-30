@@ -6,7 +6,7 @@
 - **Package Manager**: Yarn
 - **Type Checker**: Typescript
 - **Bundler**: Webpack
-- J**avaScript compiler**: Babel
+- **JavaScript compiler**: Babel
 - **Routing**: React Router (v6)
 - **Http Client**: Axios
 - **Data Fetching**: react-query
