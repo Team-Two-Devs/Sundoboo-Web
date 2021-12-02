@@ -14,6 +14,7 @@ const config: Configuration = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].[contenthash].js',
+    chunkFilename: '[name].[id].js',
     publicPath: ''
   },
   module: {
@@ -27,13 +28,25 @@ const config: Configuration = {
             presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript']
           }
         }
+      },
+      {
+        test: /\.css$/,
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
+      },
+      {
+        test: /\.jfif$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]'
+        }
       }
     ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    extensions: ['.tsx', '.ts', '.js', '.json']
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Sundoboo',
       template: `${PUB_DIR}/index.html`,
@@ -48,8 +61,7 @@ const config: Configuration = {
     new WebpackManifestPlugin({
       fileName: 'manifest.json',
       basePath: './dist/'
-    }),
-    new CleanWebpackPlugin()
+    })
   ]
 };
 

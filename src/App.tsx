@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { Global } from '@emotion/react';
 
 import { useEffectOnce, useToggle, useUpdate } from './hooks';
+import { global } from './styles';
+import { Test } from './components/common';
 
 const App = () => {
   const [value, toggleValue] = useToggle(false);
@@ -27,6 +30,7 @@ const App = () => {
 
   return (
     <div>
+      <Global styles={global} />
       Hello~! {new Date().toLocaleDateString()}
       <div>value: {value.toString()}</div>
       <button onClick={toggleValue}>Toggle</button>
@@ -34,6 +38,7 @@ const App = () => {
       <button onClick={() => toggleValue(false)}>false</button>
       <div>count: {count}</div>
       <button onClick={handleIncrement}>Increment</button>
+      <Test />
     </div>
   );
 };
