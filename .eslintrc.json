@@ -8,13 +8,15 @@
       "jsx": true
     }
   },
-  "plugins": ["@typescript-eslint", "react-hooks", "prettier"],
+  "plugins": ["@emotion", "@typescript-eslint", "flowtype", "react-hooks", "prettier"],
   "extends": [
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
     "plugin:prettier/recommended",
+    "plugin:flowtype/recommended",
     "plugin:react/recommended",
+    "react-app",
     "prettier"
   ],
   "rules": {
@@ -22,6 +24,8 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",
+    "@emotion/jsx-import": "error",
+    "@emotion/pkg-renaming": "error",
     "@typescript-eslint/no-unused-vars": 0
   },
   "settings": {

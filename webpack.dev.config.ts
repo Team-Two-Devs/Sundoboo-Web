@@ -1,4 +1,5 @@
 import path from 'path';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import { Configuration, HotModuleReplacementPlugin } from 'webpack';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -24,13 +25,25 @@ const config: Configuration = {
             presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript']
           }
         }
+      },
+      {
+        test: /\.css$/,
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
+      },
+      {
+        test: /\.jfif$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]'
+        }
       }
     ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    extensions: ['.tsx', '.ts', '.js', '.json']
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Sundoboo-Dev',
       template: `${PUB_DIR}/index.html`,
