@@ -2,7 +2,8 @@ import { Theme } from '@emotion/react';
 
 const colors = {
   white: '#fff',
-  dark: {
+  black: '#000',
+  surfaceDp: {
     '1': '#e1e1e1',
     '2': '#222222',
     '3': '#242424',
@@ -24,7 +25,17 @@ const colors = {
     '700': '#616161',
     '800': '#424242',
     '900': '#212121'
-  }
+  },
+  lime: {
+    '1': '#99ffff',
+    '2': '#4dffff',
+    '3': '#61ffff',
+    '4': '#03dac6'
+  },
+  primary: '#7579e7',
+  primaryDark: '#3700b3',
+  surface: '#121212',
+  strong: '#edffff'
 };
 
 const breakPoint = {
@@ -42,11 +53,33 @@ const device = {
 };
 
 const lightThemeColors = {
-  background: colors.white
+  background: colors.white,
+  searchToolbar: colors.surfaceDp[24],
+  icon: {
+    default: colors.lime[2]
+  },
+  vote: {
+    holderUnChecked: colors.surfaceDp[24],
+    holderChecked: colors.primary,
+    unchecked: colors.lime[3],
+    checked: colors.lime[1]
+  },
+  divider: colors.surfaceDp[24]
 };
 
 const darkThemeColors = {
-  background: colors.dark[2]
+  background: colors.surfaceDp[3],
+  searchToolbar: colors.surfaceDp[24],
+  icon: {
+    default: colors.lime[2]
+  },
+  vote: {
+    holderUnChecked: colors.surfaceDp[24],
+    holderChecked: colors.primary,
+    unchecked: colors.lime[3],
+    checked: colors.lime[1]
+  },
+  divider: colors.surfaceDp[24]
 };
 
 export const lightTheme: Theme = {
