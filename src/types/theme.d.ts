@@ -15,6 +15,11 @@ declare module '@emotion/react' {
         checked: string;
       };
       divider: string;
+      text: {
+        'critical-default': string;
+        'critical-hover': string;
+        'critical-disabled': string;
+      };
     };
     device: {
       mobile: string;
