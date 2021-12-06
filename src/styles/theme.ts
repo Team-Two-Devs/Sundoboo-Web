@@ -26,11 +26,20 @@ const colors = {
     '800': '#424242',
     '900': '#212121'
   },
-  lime: {
+  cyan: {
     '1': '#99ffff',
     '2': '#4dffff',
     '3': '#61ffff',
     '4': '#03dac6'
+  },
+  red: {
+    '1': '#de0000',
+    '2': '#990000',
+    '3': '#610000'
+  },
+  purple: {
+    '1': '#7579e7',
+    '2': '#3700b3'
   },
   primary: '#7579e7',
   primaryDark: '#3700b3',
@@ -56,30 +65,40 @@ const lightThemeColors = {
   background: colors.white,
   searchToolbar: colors.surfaceDp[24],
   icon: {
-    default: colors.lime[2]
+    default: colors.cyan[2]
   },
   vote: {
     holderUnChecked: colors.surfaceDp[24],
     holderChecked: colors.primary,
-    unchecked: colors.lime[3],
-    checked: colors.lime[1]
+    unchecked: colors.cyan[3],
+    checked: colors.cyan[1]
   },
-  divider: colors.surfaceDp[24]
+  divider: colors.surfaceDp[24],
+  text: {
+    'critical-default': colors.red[1],
+    'critical-hover': colors.red[2],
+    'critical-disabled': colors.red[3]
+  }
 };
 
 const darkThemeColors = {
   background: colors.surfaceDp[3],
   searchToolbar: colors.surfaceDp[24],
   icon: {
-    default: colors.lime[2]
+    default: colors.cyan[2]
   },
   vote: {
     holderUnChecked: colors.surfaceDp[24],
     holderChecked: colors.primary,
-    unchecked: colors.lime[3],
-    checked: colors.lime[1]
+    unchecked: colors.cyan[3],
+    checked: colors.cyan[1]
   },
-  divider: colors.surfaceDp[24]
+  divider: colors.surfaceDp[24],
+  text: {
+    'critical-default': colors.red[1],
+    'critical-hover': colors.red[2],
+    'critical-disabled': colors.red[3]
+  }
 };
 
 export const lightTheme: Theme = {
