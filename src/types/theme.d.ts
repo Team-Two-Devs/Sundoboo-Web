@@ -1,3 +1,4 @@
+/* eslint-disable flowtype/no-types-missing-file-annotation */
 import '@emotion/react';
 
 declare module '@emotion/react' {

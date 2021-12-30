@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
-import { Global } from '@emotion/react';
+import { Global, ThemeProvider } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import { useEffectOnce, useToggle, useUpdate } from './hooks';
 import { global } from './styles';
 import { Test } from './components/common';
+import { darkTheme, lightTheme } from './styles/theme';
 
 const App = () => {
-  const [value, toggleValue] = useToggle(false);
+  const [isDark, toggleIsDark] = useToggle(
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  );
   const [count, setCount] = useState(10);
 
   const handleIncrement = () => {
@@ -28,18 +32,26 @@ const App = () => {
 
   useUpdate(() => console.log(count), [count]);
 
+  const AppLayout = styled.main`
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+    min-height: 100vh;
+    background-color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.text['critical-default']};
+  `;
+
   return (
-    <div>
-      <Global styles={global} />
-      Hello~! {new Date().toLocaleDateString()}
-      <div>value: {value.toString()}</div>
-      <button onClick={toggleValue}>Toggle</button>
-      <button onClick={() => toggleValue(true)}>true</button>
-      <button onClick={() => toggleValue(false)}>false</button>
-      <div>count: {count}</div>
-      <button onClick={handleIncrement}>Increment</button>
-      <Test />
-    </div>
+    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+      <AppLayout>
+        <Global styles={global} />
+        {isDark ? 'Dark' : 'Light'} Mode
+        <button type="button" onClick={toggleIsDark}>
+          Change Theme!
+        </button>
+        <div>count: {count}</div>
+        <button onClick={handleIncrement}>Increment</button>
+        <Test />
+      </AppLayout>
+    </ThemeProvider>
   );
 };
 

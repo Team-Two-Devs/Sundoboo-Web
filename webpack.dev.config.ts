@@ -8,7 +8,7 @@ import { WebpackManifestPlugin } from 'webpack-manifest-plugin';
 
 const PUB_DIR = path.join(__dirname, '/public');
 
-const config: Configuration = {
+const config = {
   mode: 'development',
   output: {
     publicPath: '/'
@@ -51,7 +51,7 @@ const config: Configuration = {
     }),
     new HotModuleReplacementPlugin(),
     new ForkTsCheckerWebpackPlugin({
-      async: false
+      async: true
     }),
     new ESLintPlugin({
       extensions: ['js', 'jsx', 'ts', 'tsx']
