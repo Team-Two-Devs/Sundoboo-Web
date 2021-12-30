@@ -95,7 +95,8 @@ const darkThemeColors = {
   },
   divider: colors.surfaceDp[24],
   text: {
-    'critical-default': colors.red[1],
+    // 'critical-default': colors.red[1],
+    'critical-default': colors.primary,
     'critical-hover': colors.red[2],
     'critical-disabled': colors.red[3]
   }
